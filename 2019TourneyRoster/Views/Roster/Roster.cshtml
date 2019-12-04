@@ -1,1 +1,43 @@
 ﻿
+@model _2019TourneyRoster.Models.RosterModel
+
+@{
+    ViewBag.Title = "Team Rosters";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var teamSize = (Model.RedTeam.Count() + Model.BlackTeam.Count()) / 2;
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col headers">
+            <p>Team Rosters</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col table-responsive">
+            @if(Model.RedTeam != null || Model.BlackTeam != null)
+            {
+                <table>
+                    <thead>
+                        <tr>
+                            <th><span class="redTeamHeader">Black</span></th>
+                            <th><span class="blackTeamHeader">Red</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for(var i = 0; i < teamSize; i++)
+                        {
+                            <tr>
+                                <td>Model.RedTeam[i].Name</td>
+                                <td>Model.BlackTeam[i].Name</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <p>There are no team rosters to display at this time.</p>
+            }
+        </div>
+    </div>
+</div>

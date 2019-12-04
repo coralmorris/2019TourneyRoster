@@ -6,5 +6,8 @@ namespace _2019TourneyRoster.Models
         public Team()
         {
         }
+
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

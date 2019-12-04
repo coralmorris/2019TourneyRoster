@@ -2,18 +2,40 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _2019TourneyRoster.DAL;
+using _2019TourneyRoster.Models;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace _2019TourneyRoster.Controllers
 {
     public class RosterController : Controller
     {
-        // GET: /<controller>/
-        public IActionResult Index()
+        private readonly TourneyContext _context;
+
+        public RosterController(TourneyContext context)
         {
-            return View();
+            _context = context;
+        }
+
+        // GET: /<controller>/
+        public IActionResult TeamRoster()
+        {
+            var model = new RosterModel();
+            var allPlayers = _context.Players.ToList();
+            model.Teams = _context.Teams.ToList();
+
+            var redTeamId = model.Teams.Where(x => x.Name == "Red").FirstOrDefault().ID;
+            var blackTeamId = model.Teams.Where(x => x.Name == "Black").FirstOrDefault().ID;
+
+            model.RedTeam = GetTeamList(allPlayers, redTeamId);
+            model.BlackTeam = GetTeamList(allPlayers, blackTeamId);
+
+            return View(model);
+        }
+
+        public List<Player> GetTeamList(List<Player> roster, int id)
+        {
+            return roster.Where(x => x.TeamID == id).ToList();
         }
     }
 }

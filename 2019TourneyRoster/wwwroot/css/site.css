@@ -1,6 +1,4 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
+﻿
 a.navbar-brand {
   white-space: normal;
   text-align: center;
@@ -62,10 +60,65 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+  background-color: #150578;
+  color: #ffffff;
 }
+
+#tourneyBannerText {
+    font-size: 2.5em;
+    color: white;
+    position: absolute;
+    top: 95%;
+    right: 5%;
+    transform: translate( 5%, -5% );
+}
+
+.paddle-pic {
+    width: 50%;
+}
+
+#navs {
+    background-color: #150578;
+}
+
+.navbar-brand {
+    color: white;
+}
+
+.nav-link {
+    color: white;
+}
+
+span.navbar-toggler-icon {
+    color: white;
+}
+
+.headers {
+    margin: 20px 20px 10px 20px;
+}
+
+.pageForm {
+    margin: 10px 20px;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  }

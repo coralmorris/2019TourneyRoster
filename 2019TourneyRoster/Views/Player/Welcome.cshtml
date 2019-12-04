@@ -1,5 +1,41 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿
+@model _2019TourneyRoster.Models.WelcomeModel
+
 @{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="container-fluid">
+    <div class="row">
+        <div class="col headers">
+            @if (Model.TeamName != null)
+            {
+                <p>WELCOME TO TEAM @Model.TeamName</p>
+            } else
+            {
+                <p>Something must have gone wrong. I don't know which team you are on.</p>
+            }
+
+            <p>Click <a href="@Url.Action("Index", "Roster")">here</a> to see the full team rosters</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-4">
+            @if (Model.TeamName == "Red")
+            {
+                <img src="img/Paddle-Red.png" class="img-fluid paddle-pic" alt="Red Table Tennis Paddle" />
+            }
+            else if (Model.TeamName == "Black")
+            {
+                <img src="img/Paddle-Black.png" class="img-fluid paddle-pic" alt="Black Table Tennis Paddle" />
+            }
+            else
+            {
+                <img src="img/Paddle-Blue.png" class="img-fluid paddle-pic" alt="Blue Table Tennis Paddle" />
+            }
+        </div>
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+    </div>
+</div>
+

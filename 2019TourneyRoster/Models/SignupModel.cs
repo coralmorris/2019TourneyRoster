@@ -1,16 +1,17 @@
 ﻿using System;
+using System.Threading.Tasks;
+using _2019TourneyRoster.DAL;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+
 namespace _2019TourneyRoster.Models
 {
-    public class PlayerViewModel
+    public class SignupModel
     {
-        public PlayerViewModel()
+        public SignupModel()
         {
         }
 
-        public int PlayerID { get; set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public string ShirtSize { get; set; }
-        public string TeamName { get; set; }
+        public Player Player { get; set; }
     }
 }
